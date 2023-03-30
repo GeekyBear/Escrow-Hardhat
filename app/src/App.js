@@ -29,7 +29,9 @@ function App() {
   async function newContract() {
     const beneficiary = document.getElementById('beneficiary').value;
     const arbiter = document.getElementById('arbiter').value;
-    const value = ethers.BigNumber.from(document.getElementById('wei').value);
+    console.log(ethers.utils.parseEther(document.getElementById('ether').value, 'wei'))
+    const value = ethers.BigNumber.from(ethers.utils.parseEther(document.getElementById('ether').value, 'wei'));
+    //const value = ethers.BigNumber.from(document.getElementById('wei').value);
     const escrowContract = await deploy(signer, arbiter, beneficiary, value);
 
 
@@ -68,8 +70,8 @@ function App() {
         </label>
 
         <label>
-          Deposit Amount (in Wei)
-          <input type="text" id="wei" />
+          Deposit Amount (in ether)
+          <input type="text" id="ether" />
         </label>
 
         <div
