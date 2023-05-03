@@ -31,7 +31,6 @@ function App() {
     const arbiter = document.getElementById('arbiter').value;
     console.log(ethers.utils.parseEther(document.getElementById('ether').value, 'wei'))
     const value = ethers.BigNumber.from(ethers.utils.parseEther(document.getElementById('ether').value, 'wei'));
-    //const value = ethers.BigNumber.from(document.getElementById('wei').value);
     const escrowContract = await deploy(signer, arbiter, beneficiary, value);
 
 
